@@ -105,3 +105,6 @@ CD Account: Interest earned = $120.00
 CD Account: Updated balance after 24 months = $2120.00
 ```
 
+## Conclusion
+
+The **Customer Banking System** is a simple yet powerful tool designed to help users manage and track their financial growth. By focusing on both savings and CD accounts, the system ensures accurate interest calculations and provides users with updated account balances, making it easier for them to make informed financial decisions.
