@@ -1,0 +1,4 @@
+# Ignore __pycache__ folder and all .pyc files
+__pycache__/
+*.pyc
+
