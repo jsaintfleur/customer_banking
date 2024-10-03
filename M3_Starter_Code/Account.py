@@ -1,26 +1,59 @@
 class Account:
-    """Creating an Account class with methods to manage balance and interest"""
+    """Account class for managing account balance and interest.
+    
+    Attributes:
+        balance (float): The current balance of the account.
+        interest (float): The interest earned on the account.
+    """
     
     def __init__(self, balance, interest):
-        self.balance = balance
-        self.interest = interest
+        """Initialize Account with balance and interest.
+        
+        Args:
+            balance (float): Initial balance for the account.
+            interest (float): Initial interest for the account.
+        """
+        self.set_balance(balance)  # Initialize balance using the setter method to ensure validation.
+        self.set_interest(interest)  # Initialize interest using the setter method to ensure validation.
 
-    # This method sets the balance of the account.
     def set_balance(self, balance):
-        """Sets the balance for the account."""
-        self.balance = balance
+        """Sets the balance for the account, ensuring it is non-negative.
+        
+        Args:
+            balance (float): The new balance for the account.
+        
+        Raises:
+            ValueError: If the balance is negative.
+        """
+        if balance < 0:  # Check if the balance is negative before setting.
+            raise ValueError("Balance cannot be negative.")  # Raise an error if balance is invalid.
+        self.balance = balance  # Set the balance.
 
-    # This method returns the balance of the account.
     def get_balance(self):
-        """Gets the current balance of the account."""
-        return self.balance
+        """Gets the current balance of the account.
+        
+        Returns:
+            float: The current balance.
+        """
+        return self.balance  # Return the current balance.
 
-    # This method sets the interest earned for the account.
     def set_interest(self, interest):
-        """Sets the interest earned for the account."""
-        self.interest = interest
+        """Sets the interest earned for the account, ensuring it is non-negative.
+        
+        Args:
+            interest (float): The new interest earned.
+        
+        Raises:
+            ValueError: If the interest is negative.
+        """
+        if interest < 0:  # Check if the interest is negative before setting.
+            raise ValueError("Interest cannot be negative.")  # Raise an error if interest is invalid.
+        self.interest = interest  # Set the interest.
 
-    # This method returns the interest earned.
     def get_interest(self):
-        """Gets the current interest earned on the account."""
-        return self.interest
+        """Gets the current interest earned on the account.
+        
+        Returns:
+            float: The current interest earned.
+        """
+        return self.interest  # Return the current interest earned.

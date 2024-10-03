@@ -1,38 +1,38 @@
-# Import the create_cd_account and create_savings_account functions
-from savings_account import create_savings_account
-from cd_account import create_cd_account
+from savings_account import create_savings_account  # Import function to handle savings accounts
+from cd_account import create_cd_account  # Import function to handle CD accounts
 
-# Define the main function
 def main():
-    """This function prompts the user to enter the savings and CD account balance, interest rate,
-    and the length of months to determine the interest gained.
-    It displays the interest earned on the savings and CD accounts and updates the balances.
-    """
+    """Main function to handle user input, calculate interest, and display results."""
     
-    # Prompt the user to set the savings balance, interest rate, and months for the savings account.
-    savings_balance = float(input("Enter the savings account balance: "))
-    savings_interest = float(input("Enter the annual interest rate (APR) for the savings account: "))
-    savings_maturity = int(input("Enter the number of months for the savings account: "))
+    try:
+        # Get user input for savings account details
+        savings_balance = float(input("Enter the savings account balance: "))  # Ensure input is cast to float
+        savings_interest = float(input("Enter the annual interest rate (APR) for the savings account: "))  # Interest rate as float
+        savings_maturity = int(input("Enter the number of months for the savings account: "))  # Maturity as integer
 
-    # Call the create_savings_account function and pass the variables from the user.
-    updated_savings_balance, interest_earned = create_savings_account(savings_balance, savings_interest, savings_maturity)
+        # Calculate interest and updated balance for savings account
+        updated_savings_balance, interest_earned_savings = create_savings_account(savings_balance, savings_interest, savings_maturity)
 
-    # Print out the interest earned and updated savings account balance with interest earned for the given months.
-    print(f"Savings Account: Interest earned = ${interest_earned:.2f}")
-    print(f"Savings Account: Updated balance after {savings_maturity} months = ${updated_savings_balance:.2f}\n")
+        # Display the results for the savings account
+        print(f"Savings Account: Interest earned = ${interest_earned_savings:,.2f}")  # Format to two decimal places and add thousand separators
+        print(f"Savings Account: Updated balance after {savings_maturity} months = ${updated_savings_balance:,.2f}\n")  # Thousand separators added
 
-    # Prompt the user to set the CD balance, interest rate, and months for the CD account.
-    cd_balance = float(input("Enter the CD account balance: "))
-    cd_interest = float(input("Enter the annual interest rate (APR) for the CD account: "))
-    cd_maturity = int(input("Enter the number of months for the CD account: "))
+        # Get user input for CD account details
+        cd_balance = float(input("Enter the CD account balance: "))  # Ensure input is cast to float
+        cd_interest = float(input("Enter the annual interest rate (APR) for the CD account: "))  # Interest rate as float
+        cd_maturity = int(input("Enter the number of months for the CD account: "))  # Maturity as integer
 
-    # Call the create_cd_account function and pass the variables from the user.
-    updated_cd_balance, interest_earned = create_cd_account(cd_balance, cd_interest, cd_maturity)
+        # Calculate interest and updated balance for CD account
+        updated_cd_balance, interest_earned_cd = create_cd_account(cd_balance, cd_interest, cd_maturity)
 
-    # Print out the interest earned and updated CD account balance with interest earned for the given months.
-    print(f"CD Account: Interest earned = ${interest_earned:.2f}")
-    print(f"CD Account: Updated balance after {cd_maturity} months = ${updated_cd_balance:.2f}")
+        # Display the results for the CD account
+        print(f"CD Account: Interest earned = ${interest_earned_cd:,.2f}")  # Format to two decimal places and add thousand separators
+        print(f"CD Account: Updated balance after {cd_maturity} months = ${updated_cd_balance:,.2f}")  # Thousand separators added
 
+    except ValueError as e:
+        # Handle invalid input values (e.g., non-numeric or negative inputs)
+        print(f"Error: {e}")
+
+# Call the main function to run the program when the script is executed
 if __name__ == "__main__":
-    # Call the main function.
     main()
