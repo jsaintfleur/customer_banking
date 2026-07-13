@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens — Savings Growth Planner.
+ *
+ * A warm, trustworthy financial palette: deep indigo for trust, emerald for
+ * growth, warm gold for interest and milestones, coral for interactive
+ * accents, cream/soft-neutral surfaces. Meaning is never carried by color
+ * alone — every colored signal is paired with a label or icon.
+ */
+:root {
+  --background: 40 33% 97%; /* warm cream */
+  --surface: 0 0% 100%;
+  --surface-raised: 40 20% 99%;
+  --text: 232 22% 16%; /* charcoal-indigo */
+  --text-muted: 232 12% 42%;
+  --border: 36 18% 87%;
+  --primary: 243 47% 34%; /* deep indigo */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 158 64% 30%; /* emerald */
+  --accent: 12 82% 61%; /* coral */
+  --gold: 40 84% 46%; /* warm gold */
+  --positive: 158 64% 30%;
+  --warning: 32 92% 40%;
+  --negative: 4 66% 46%;
+  --info: 210 60% 40%;
+  /* Chart series: indigo, emerald, gold, coral, lavender, teal. */
+  --chart-1: 243 45% 45%;
+  --chart-2: 158 55% 36%;
+  --chart-3: 40 84% 46%;
+  --chart-4: 12 76% 58%;
+  --chart-5: 262 35% 62%;
+  --chart-6: 187 52% 38%;
+}
+
+.dark {
+  --background: 235 24% 10%;
+  --surface: 235 20% 14%;
+  --surface-raised: 235 18% 17%;
+  --text: 40 25% 94%;
+  --text-muted: 232 12% 68%;
+  --border: 235 14% 26%;
+  --primary: 243 65% 72%;
+  --primary-foreground: 235 24% 10%;
+  --secondary: 158 50% 55%;
+  --accent: 12 85% 68%;
+  --gold: 42 80% 60%;
+  --positive: 158 50% 55%;
+  --warning: 36 90% 62%;
+  --negative: 4 80% 68%;
+  --info: 210 70% 68%;
+  --chart-1: 243 60% 70%;
+  --chart-2: 158 48% 55%;
+  --chart-3: 42 78% 60%;
+  --chart-4: 12 80% 66%;
+  --chart-5: 262 45% 72%;
+  --chart-6: 187 48% 56%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--text));
+}
+
+/* Subtle entrance for updated results, disabled for reduced-motion users. */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-rise {
+    animation: rise 0.35s ease-out both;
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Visible focus for keyboard users on every interactive element. */
+:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 2px;
+}

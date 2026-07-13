@@ -5,7 +5,7 @@ class Account:
         balance (float): The current balance of the account.
         interest (float): The interest earned on the account.
     """
-    
+
     def __init__(self, balance, interest):
         """Initialize Account with balance and interest.
         

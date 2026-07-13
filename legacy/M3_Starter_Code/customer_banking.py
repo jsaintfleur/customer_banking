@@ -1,9 +1,10 @@
-from savings_account import create_savings_account  # Import function to handle savings accounts
 from cd_account import create_cd_account  # Import function to handle CD accounts
+from savings_account import create_savings_account  # Import function to handle savings accounts
+
 
 def main():
     """Main function to handle user input, calculate interest, and display results."""
-    
+
     try:
         # Get user input for savings account details
         savings_balance = float(input("Enter the savings account balance: "))  # Ensure input is cast to float

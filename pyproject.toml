@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "customer-banking"
+version = "2.0.0"
+description = "Savings Growth Planner — educational savings and CD projection engine and CLI"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "Justin Saint-Fleur" }]
+keywords = ["savings", "cd", "compound-interest", "apy", "financial-education"]
+
+[project.scripts]
+savings-planner = "cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests", "cli"]
+# The legacy bootcamp submission is preserved byte-for-byte for history and
+# is intentionally not linted.
+extend-exclude = ["legacy"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+files = ["src"]

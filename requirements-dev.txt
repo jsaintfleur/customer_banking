@@ -1,0 +1,5 @@
+# Development dependencies for the Python engine and CLI.
+# The engine itself has zero runtime dependencies (standard library only).
+pytest>=8.0
+ruff>=0.4
+mypy>=1.10
